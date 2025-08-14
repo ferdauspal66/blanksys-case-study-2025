@@ -79,6 +79,11 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
+
+      .carousel-container {
+        max-width: 90vw; /* 90% viewport width */
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
@@ -90,14 +95,20 @@
             <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg"></div>
             <span class="font-bold text-xl">BLANKSYS</span>
           </div>
-          <div class="hidden md:flex space-x-8">
+          <div class="hidden md:flex space-x-8 items-center">
             <a href="#overview" class="hover:text-purple-600 transition-colors">Overview</a>
             <a href="#problem" class="hover:text-purple-600 transition-colors">Problem</a>
             <a href="#solution" class="hover:text-purple-600 transition-colors">Solution</a>
             <a href="#process" class="hover:text-purple-600 transition-colors">Process</a>
             <a href="#tech" class="hover:text-purple-600 transition-colors">Tech Stack</a>
+
+            <!-- Language Switcher -->
+            <button id="langSwitch" class="flex items-center space-x-1 hover:text-purple-600 transition-colors">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+              <span id="currentLang">EN</span>
+            </button>
           </div>
-          <a href="https://blanksys.netlify.app/" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all pulse-glow"> Demo Live </a>
+          <a href="https://blanksys.netlify.app/" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all pulse-glow"> Demo Live </a>
         </div>
       </div>
     </nav>
@@ -114,7 +125,7 @@
           <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">Sistem Point of Sales berbasis cloud yang revolusioner untuk toko bangunan, hardware, dan material engineering</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#overview" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"> Lihat Case Study </a>
-            <a href="https://blanksys.netlify.app/" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all"> Try Demo </a>
+            <a href="https://blanksys.netlify.app/" target="_blank" rel="noopener noreferrer" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all"> Try Demo </a>
           </div>
         </div>
       </div>
@@ -136,14 +147,14 @@
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="fade-in stagger-1">
             <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-3xl">
-              <h3 class="text-2xl font-bold mb-6">Detail Proyek</h3>
+              <h3 class="text-2xl font-bold mb-6">Detail Project</h3>
               <div class="space-y-4">
                 <div class="flex items-start space-x-4">
                   <div class="feature-icon w-6 h-6 rounded-full flex items-center justify-center">
                     <i data-lucide="tag" class="w-4 h-4 text-white"></i>
                   </div>
                   <div>
-                    <strong class="text-gray-900">Nama Proyek:</strong>
+                    <strong class="text-gray-900">Nama Project:</strong>
                     <p class="text-gray-600">BLANKSYS Hardware POS</p>
                   </div>
                 </div>
@@ -200,16 +211,20 @@
     <section class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
-          <h2 class="text-4xl font-bold mb-4">Tim & Peran</h2>
-          <p class="text-xl text-gray-600">Tim multidisiplin yang terdiri dari UI/UX Designer dan Full Stack Developer</p>
+          <h2 class="text-4xl font-bold mb-4">Team & Role</h2>
+          <p class="text-xl text-gray-600">Team kami yang terdiri dari UI/UX Designer dan Full Stack Developer</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- UI/UX Designer Card -->
           <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-1">
-            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-              <i data-lucide="palette" class="w-8 h-8 text-white"></i>
+            <div class="flex items-center mb-6">
+              <img src="images/profile/firdaus.png" alt="UI/UX Designer" class="w-16 h-16 rounded-2xl object-cover mr-4" />
+              <div>
+                <h3 class="text-2xl font-bold">Firdaus</h3>
+                <p class="text-purple-600">UI/UX Designer</p>
+              </div>
             </div>
-            <h3 class="text-2xl font-bold mb-4">UI/UX Designer</h3>
             <p class="text-gray-600 mb-4">Bertanggung jawab atas penelitian pengguna, perancangan antarmuka, dan pengalaman pengguna yang optimal.</p>
             <ul class="text-sm text-gray-500 space-y-2">
               <li>• User Research & Analysis</li>
@@ -219,11 +234,15 @@
             </ul>
           </div>
 
+          <!-- Full Stack Developer Card -->
           <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-2">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-              <i data-lucide="code" class="w-8 h-8 text-white"></i>
+            <div class="flex items-center mb-6">
+              <img src="images/profile/joko.png" alt="Full Stack Developer" class="w-16 h-16 rounded-2xl object-cover mr-4" />
+              <div>
+                <h3 class="text-2xl font-bold">Joko Purwanto</h3>
+                <p class="text-blue-600">Full Stack Developer</p>
+              </div>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Full Stack Developer</h3>
             <p class="text-gray-600 mb-4">Menangani pengembangan frontend dan backend, serta implementasi arsitektur sistem yang scalable.</p>
             <ul class="text-sm text-gray-500 space-y-2">
               <li>• Frontend Development (React + TypeScript)</li>
@@ -378,8 +397,7 @@
 
         <div class="relative">
           <!-- Process Line -->
-          <div class="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-purple-500 to-blue-500 hidden lg:block"></div>
-
+          <div class="absolute left-8 top-8 bottom-8 w-0.5 bg-gray-200 hidden lg:block"></div>
           <div class="space-y-12">
             <!-- Step 1: Research -->
             <div class="flex items-start space-x-8 fade-in stagger-1">
@@ -630,11 +648,90 @@
       </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4 text-white">Gallery</h2>
+          <p class="text-xl text-gray-300">Screenshot interface dan implementasi BLANKSYS di lapangan</p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative max-w-6xl mx-auto fade-in">
+          <div id="carousel" class="relative overflow-hidden rounded-2xl group">
+            <!-- Main Carousel with smooth transitions -->
+            <div id="carousel-inner" class="flex transition-all duration-700 ease-in-out">
+              <div class="w-full flex-shrink-0 transform hover:scale-105 transition-transform duration-300">
+                <img src="images/ss 1.png" alt="Screenshot 1" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 2.png" alt="Screenshot 2" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 3.png" alt="Screenshot 3" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 4.png" alt="Screenshot 4" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 5.png" alt="Screenshot 5" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 7.png" alt="Screenshot 6" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 8.png" alt="Screenshot 7" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="images/ss 9.png" alt="Screenshot 6" class="w-full h-auto" onclick="openLightbox(this.src)" />
+              </div>
+            </div>
+
+            <!-- Updated Navigation Buttons with animations -->
+            <button
+              onclick="moveSlide(-1)"
+              class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
+            >
+              <i data-lucide="chevron-left" class="w-6 h-6 text-gray-800"></i>
+            </button>
+            <button
+              onclick="moveSlide(1)"
+              class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
+            >
+              <i data-lucide="chevron-right" class="w-6 h-6 text-gray-800"></i>
+            </button>
+
+            <!-- Updated Indicators with animations -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-3">
+              <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 hover:scale-125"></button>
+              <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 hover:scale-125"></button>
+              <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 hover:scale-125"></button>
+              <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 hover:scale-125"></button>
+              <button onclick="goToSlide(4)" class="w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 hover:scale-125"></button>
+              <button onclick="goToSlide(5)" class="w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 hover:scale-125"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden">
+        <div class="absolute top-4 right-4">
+          <button onclick="closeLightbox()" class="text-white hover:text-gray-300">
+            <i data-lucide="x" class="w-8 h-8"></i>
+          </button>
+        </div>
+        <div class="flex items-center justify-center h-full p-4">
+          <img id="lightbox-img" src="" alt="Preview" class="max-h-[90vh] max-w-[90vw] object-contain" />
+        </div>
+      </div>
+    </section>
+
     <!-- Results & Impact -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 fade-in">
-          <h2 class="text-4xl font-bold mb-4">Hasil & Dampak</h2>
+          <h2 class="text-4xl font-bold mb-4">Hasil & Kesimpulan</h2>
           <p class="text-xl text-gray-600">Sistem yang telah beroperasi dengan sukses dan memberikan value nyata</p>
         </div>
 
@@ -684,14 +781,20 @@
           <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">Siap Mencoba BLANKSYS?</h2>
           <p class="text-xl text-white/90 mb-8">Rasakan sendiri pengalaman menggunakan sistem POS yang revolusioner untuk bisnis hardware Anda</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://blanksys.netlify.app/" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 pulse-glow">
+            <a href="https://blanksys.netlify.app/" target="_blank" rel="noopener noreferrer" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 pulse-glow">
               <i data-lucide="external-link" class="w-5 h-5 inline mr-2"></i>
               Coba Demo Live
             </a>
-            <a href="mailto:contact@blanksys.com" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
-              <i data-lucide="mail" class="w-5 h-5 inline mr-2"></i>
-              Hubungi Tim
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="mailto:ferdausalamsyah@gmail.com" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                <i data-lucide="mail" class="w-5 h-5 inline mr-2"></i>
+                Email
+              </a>
+              <a href="https://wa.me/6282254500939" target="_blank" rel="noopener noreferrer" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                <i data-lucide="message-circle" class="w-5 h-5 inline mr-2"></i>
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -727,11 +830,15 @@
             <div class="space-y-2 text-gray-400">
               <div class="flex items-center space-x-2">
                 <i data-lucide="external-link" class="w-4 h-4"></i>
-                <a href="https://blanksys.netlify.app/" class="hover:text-white transition-colors">Demo Live</a>
+                <a href="https://blanksys.netlify.app/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Demo Live</a>
               </div>
               <div class="flex items-center space-x-2">
                 <i data-lucide="mail" class="w-4 h-4"></i>
-                <span>contact@blanksys.com</span>
+                <a href="mailto:ferdausalamsyah@gmail.com" class="hover:text-white transition-colors">ferdausalamsyah@gmail.com</a>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <a href="https://wa.me/6282254500939" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">+62 822-5450-0939</a>
               </div>
             </div>
           </div>
@@ -800,6 +907,120 @@
 
       // Add transition to navbar
       navbar.style.transition = "transform 0.3s ease-in-out";
+
+      // Lightbox functionality
+      function openLightbox(imgSrc) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        if (lightbox && lightboxImg) {
+          lightboxImg.src = imgSrc;
+          lightbox.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        if (lightbox) {
+          lightbox.classList.add("hidden");
+          document.body.style.overflow = "auto";
+        }
+      }
+
+      // Event Listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        // Close lightbox when clicking outside image
+        const lightbox = document.getElementById("lightbox");
+        if (lightbox) {
+          lightbox.addEventListener("click", function (e) {
+            if (e.target === this) {
+              closeLightbox();
+            }
+          });
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeLightbox();
+          }
+        });
+
+        // Add click handlers to all gallery images
+        document.querySelectorAll(".group img").forEach((img) => {
+          img.addEventListener("click", function () {
+            openLightbox(this.src);
+          });
+        });
+      });
+
+      let currentSlide = 0;
+      const totalSlides = 6;
+      const carousel = document.getElementById("carousel-inner");
+      const indicators = document.querySelectorAll(".absolute.bottom-4 button");
+
+      function updateCarousel() {
+        // Smooth slide transition
+        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        // Update indicators with animation
+        indicators.forEach((indicator, index) => {
+          if (index === currentSlide) {
+            indicator.classList.add("bg-white", "scale-125");
+            indicator.classList.remove("bg-white/60");
+          } else {
+            indicator.classList.remove("bg-white", "scale-125");
+            indicator.classList.add("bg-white/60");
+          }
+        });
+      }
+
+      function moveSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        updateCarousel();
+      }
+
+      // Touch and Swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      carousel.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      carousel.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) {
+          moveSlide(1); // Swipe left
+        } else if (touchEndX - touchStartX > 50) {
+          moveSlide(-1); // Swipe right
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") moveSlide(-1);
+        if (e.key === "ArrowRight") moveSlide(1);
+      });
+
+      // Auto advance with pause on hover
+      let autoSlide = setInterval(() => moveSlide(1), 5000);
+
+      carousel.parentElement.addEventListener("mouseenter", () => {
+        clearInterval(autoSlide);
+      });
+
+      carousel.parentElement.addEventListener("mouseleave", () => {
+        autoSlide = setInterval(() => moveSlide(1), 5000);
+      });
+
+      // Initialize first slide
+      updateCarousel();
     </script>
   </body>
 </html>
