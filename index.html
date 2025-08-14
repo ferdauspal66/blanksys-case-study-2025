@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLANKSYS Hardware POS - Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+
+      .tech-badge {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .feature-icon {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 2s infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 5px rgba(79, 172, 254, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(79, 172, 254, 0.6), 0 0 30px rgba(79, 172, 254, 0.3);
+        }
+      }
+
+      .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg"></div>
+            <span class="font-bold text-xl">BLANKSYS</span>
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#overview" class="hover:text-purple-600 transition-colors">Overview</a>
+            <a href="#problem" class="hover:text-purple-600 transition-colors">Problem</a>
+            <a href="#solution" class="hover:text-purple-600 transition-colors">Solution</a>
+            <a href="#process" class="hover:text-purple-600 transition-colors">Process</a>
+            <a href="#tech" class="hover:text-purple-600 transition-colors">Tech Stack</a>
+          </div>
+          <a href="https://blanksys.netlify.app/" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all pulse-glow"> Demo Live </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden">
+      <div class="absolute inset-0 bg-black/20"></div>
+      <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+        <div class="fade-in">
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
+            BLANKSYS
+            <span class="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent"> Hardware POS </span>
+          </h1>
+          <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">Sistem Point of Sales berbasis cloud yang revolusioner untuk toko bangunan, hardware, dan material engineering</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#overview" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"> Lihat Case Study </a>
+            <a href="https://blanksys.netlify.app/" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all"> Try Demo </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Elements -->
+      <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce"></div>
+      <div class="absolute bottom-20 right-10 w-16 h-16 bg-yellow-400/20 rounded-full animate-pulse"></div>
+      <div class="absolute top-1/3 right-20 w-12 h-12 bg-orange-500/20 rounded-full animate-ping"></div>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="overview" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Project Overview</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Solusi komprehensif untuk mengotomatisasi proses penjualan, pembelian, dan pencatatan keuangan</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in stagger-1">
+            <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-3xl">
+              <h3 class="text-2xl font-bold mb-6">Detail Proyek</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                  <div class="feature-icon w-6 h-6 rounded-full flex items-center justify-center">
+                    <i data-lucide="tag" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div>
+                    <strong class="text-gray-900">Nama Proyek:</strong>
+                    <p class="text-gray-600">BLANKSYS Hardware POS</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div class="feature-icon w-6 h-6 rounded-full flex items-center justify-center">
+                    <i data-lucide="layers" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div>
+                    <strong class="text-gray-900">Kategori:</strong>
+                    <p class="text-gray-600">Cloud-based Point of Sales System</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div class="feature-icon w-6 h-6 rounded-full flex items-center justify-center">
+                    <i data-lucide="users" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div>
+                    <strong class="text-gray-900">Target User:</strong>
+                    <p class="text-gray-600">Toko hardware, bangunan, material, dan engineering</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in stagger-2">
+            <h3 class="text-2xl font-bold mb-6">Objektif Utama</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                </div>
+                <span>Mengotomatisasi proses penjualan, pembelian, dan pencatatan keuangan</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                </div>
+                <span>Menyediakan insight bisnis real-time dengan dashboard interaktif</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                </div>
+                <span>Menyederhanakan manajemen inventory, customer, supplier, dan transaksi</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Tim & Peran</h2>
+          <p class="text-xl text-gray-600">Tim multidisiplin yang terdiri dari UI/UX Designer dan Full Stack Developer</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-1">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="palette" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">UI/UX Designer</h3>
+            <p class="text-gray-600 mb-4">Bertanggung jawab atas penelitian pengguna, perancangan antarmuka, dan pengalaman pengguna yang optimal.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• User Research & Analysis</li>
+              <li>• Wireframing & Prototyping</li>
+              <li>• Visual Design & Branding</li>
+              <li>• User Testing & Iteration</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-2">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="code" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Full Stack Developer</h3>
+            <p class="text-gray-600 mb-4">Menangani pengembangan frontend dan backend, serta implementasi arsitektur sistem yang scalable.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Frontend Development (React + TypeScript)</li>
+              <li>• Backend Development (Node.js + NestJS)</li>
+              <li>• Database Design & Optimization</li>
+              <li>• DevOps & Deployment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section id="problem" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Permasalahan Yang Dihadapi</h2>
+          <p class="text-xl text-gray-600">Tantangan yang dihadapi toko hardware dalam mengelola ribuan SKU dan operasional harian</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-xl fade-in stagger-1">
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                <i data-lucide="package" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-red-800">Kompleksitas Inventory</h3>
+            </div>
+            <p class="text-red-700">Toko hardware memiliki ribuan SKU dengan variasi harga retail/grosir yang sulit dikelola secara manual.</p>
+          </div>
+
+          <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-xl fade-in stagger-2">
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-orange-800">Sistem Manual Rawan Error</h3>
+            </div>
+            <p class="text-orange-700">Sistem manual rentan terhadap kesalahan dan sulit untuk mengupdate harga stok secara real-time.</p>
+          </div>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-xl fade-in stagger-3">
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
+                <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-yellow-800">Pencatatan Lambat</h3>
+            </div>
+            <p class="text-yellow-700">Mencatat transaksi, stok, dan laporan keuangan membutuhkan waktu yang sangat lama.</p>
+          </div>
+
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-xl fade-in stagger-4">
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                <i data-lucide="link" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-blue-800">Kurang Integrasi</h3>
+            </div>
+            <p class="text-blue-700">Tidak ada integrasi antara penjualan, pembelian, dan akuntansi yang menyebabkan data terfragmentasi.</p>
+          </div>
+
+          <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-xl fade-in stagger-1">
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                <i data-lucide="truck" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-purple-800">Manajemen Supplier</h3>
+            </div>
+            <p class="text-purple-700">Kesulitan dalam mengelola pembelian barang dari supplier dan tracking pesanan.</p>
+          </div>
+
+          <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-xl fade-in stagger-2">
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                <i data-lucide="bar-chart" class="w-4 h-4 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-green-800">Laporan Manual</h3>
+            </div>
+            <p class="text-green-700">Pembuatan laporan keuangan dan bisnis masih dilakukan secara manual dan memakan waktu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution & Features -->
+    <section id="solution" class="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Solusi & Fitur Utama</h2>
+          <p class="text-xl text-gray-600">Sistem terintegrasi yang mengatasi semua permasalahan dengan teknologi modern</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-1">
+            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="pie-chart" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Dashboard</h3>
+            <p class="text-gray-600">Dashboard real-time dengan visualisasi data yang informatif dan mudah dipahami untuk monitoring performa bisnis.</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-2">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="store" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Store Profile</h3>
+            <p class="text-gray-600">Pengaturan profil toko lengkap dengan nama, alamat, kontak, logo, dan template otomatis untuk invoice.</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="package" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Inventory</h3>
+            <p class="text-gray-600">Manajemen inventory lengkap dengan data barang, kategori, brand, unit, multi-warehouse, dan pricing wholesale/retail.</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="users" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Customer & Seller</h3>
+            <p class="text-gray-600">Manajemen customer dan grup customer yang comprehensive, plus data seller/reseller terintegrasi.</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-1">
+            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="shopping-cart" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Sales</h3>
+            <p class="text-gray-600">Sistem transaksi penjualan yang cepat, history penjualan detail, dan pengelolaan retur penjualan.</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 card-hover fade-in stagger-2">
+            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="truck" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Purchases</h3>
+            <p class="text-gray-600">Purchase Orders, Receive Orders, dan Return Orders yang terintegrasi dengan inventory management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Process -->
+    <section id="process" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Proses Design</h2>
+          <p class="text-xl text-gray-600">Metodologi yang sistematis dari riset hingga implementasi</p>
+        </div>
+
+        <div class="relative">
+          <!-- Process Line -->
+          <div class="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-purple-500 to-blue-500 hidden lg:block"></div>
+
+          <div class="space-y-12">
+            <!-- Step 1: Research -->
+            <div class="flex items-start space-x-8 fade-in stagger-1">
+              <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center relative z-10">
+                <span class="text-white font-bold text-xl">1</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl font-bold mb-4">Research & Persona</h3>
+                <p class="text-gray-600 mb-6">Penelitian mendalam dengan 3 metode utama untuk memahami kebutuhan pengguna dan kompetitor.</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div class="bg-purple-50 p-6 rounded-xl">
+                    <h4 class="font-semibold mb-2">User Interview</h4>
+                    <p class="text-sm text-gray-600">Tanya jawab langsung dengan pemilik toko bangunan untuk memahami pain points</p>
+                  </div>
+                  <div class="bg-blue-50 p-6 rounded-xl">
+                    <h4 class="font-semibold mb-2">Competitor Research</h4>
+                    <p class="text-sm text-gray-600">Analisis Toqoo POS dan Manager.io untuk benchmark fitur dan UX</p>
+                  </div>
+                  <div class="bg-green-50 p-6 rounded-xl">
+                    <h4 class="font-semibold mb-2">Brainstorming with AI</h4>
+                    <p class="text-sm text-gray-600">Diskusi dengan ChatGPT, Gemini, dan Claude untuk alur bisnis yang optimal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: User Flow -->
+            <div class="flex items-start space-x-8 fade-in stagger-2">
+              <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center relative z-10">
+                <span class="text-white font-bold text-xl">2</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl font-bold mb-4">User Flow & System Concept</h3>
+                <p class="text-gray-600 mb-6">Perancangan alur sistem berdasarkan temuan riset dengan pendekatan yang terstruktur.</p>
+                <div class="space-y-3">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                      <span class="text-white text-xs font-bold">1</span>
+                    </div>
+                    <span>User journey mapping dengan Figjam</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                      <span class="text-white text-xs font-bold">2</span>
+                    </div>
+                    <span>Pembuatan list modul sistem</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                      <span class="text-white text-xs font-bold">3</span>
+                    </div>
+                    <span>Alur logika dan kebijakan sistem</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Wireframe -->
+            <div class="flex items-start space-x-8 fade-in stagger-3">
+              <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center relative z-10">
+                <span class="text-white font-bold text-xl">3</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl font-bold mb-4">Wireframe</h3>
+                <p class="text-gray-600 mb-6">Desain kasar sistem yang sederhana untuk memvisualisasikan konsep, layout, dan alur input data.</p>
+              </div>
+            </div>
+
+            <!-- Step 4: UI Design -->
+            <div class="flex items-start space-x-8 fade-in stagger-4">
+              <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center relative z-10">
+                <span class="text-white font-bold text-xl">4</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl font-bold mb-4">User Interface Design</h3>
+                <p class="text-gray-600 mb-6">Pembentukan identitas visual BLANKSYS Hardware POS yang selaras dengan kebutuhan fungsional dan estetika klien.</p>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 class="font-semibold mb-3">Design System</h4>
+                      <p class="text-sm text-gray-600 mb-2">Menggunakan Shadcn UI untuk konsistensi komponen</p>
+                      <p class="text-sm text-gray-600">Font: Raleway untuk kesan modern dan readable</p>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold mb-3">Color Palette</h4>
+                      <div class="flex space-x-2">
+                        <div class="w-8 h-8 bg-gray-800 rounded-full"></div>
+                        <div class="w-8 h-8 bg-gray-600 rounded-full"></div>
+                        <div class="w-8 h-8 bg-gray-100 rounded-full border"></div>
+                        <div class="w-8 h-8 bg-purple-600 rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 5: Prototyping -->
+            <div class="flex items-start space-x-8 fade-in stagger-1">
+              <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl flex items-center justify-center relative z-10">
+                <span class="text-white font-bold text-xl">5</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl font-bold mb-4">Prototyping</h3>
+                <p class="text-gray-600 mb-6">Prototype interaktif dengan navigasi lengkap dan simulasi user scenario untuk testing.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-red-50 p-4 rounded-xl">
+                    <h4 class="font-semibold mb-2">Interactive Components</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• Dropdown pemilihan kategori</li>
+                      <li>• Modal pop-up untuk input data</li>
+                      <li>• Animasi transisi halaman</li>
+                    </ul>
+                  </div>
+                  <div class="bg-pink-50 p-4 rounded-xl">
+                    <h4 class="font-semibold mb-2">Device Testing</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• Desktop POS (monitor kasir)</li>
+                      <li>• Tablet untuk portabilitas</li>
+                      <li>• Mobile responsive monitoring</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 6: User Testing -->
+            <div class="flex items-start space-x-8 fade-in stagger-2">
+              <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center relative z-10">
+                <span class="text-white font-bold text-xl">6</span>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl font-bold mb-4">User Testing</h3>
+                <p class="text-gray-600 mb-6">Validasi desain dengan pengguna sesungguhnya sebelum fase development penuh.</p>
+                <div class="bg-indigo-50 p-6 rounded-xl">
+                  <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 class="font-semibold mb-2">Participants</h4>
+                      <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• 2 Pemilik toko bangunan</li>
+                        <li>• 2 Kasir toko</li>
+                        <li>• 1 Admin stok gudang</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold mb-2">Test Scenarios</h4>
+                      <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Menambah barang ke inventory</li>
+                        <li>• Transaksi penjualan</li>
+                        <li>• Membuat laporan harian</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold mb-2">Metrics</h4>
+                      <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Task completion rate</li>
+                        <li>• Time on task</li>
+                        <li>• Error rate analysis</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="py-20 bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Tech Stack & Architecture</h2>
+          <p class="text-xl text-gray-300">Teknologi modern dan arsitektur yang scalable untuk performa optimal</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+          <!-- Frontend -->
+          <div class="bg-gray-800 rounded-3xl p-8 fade-in stagger-1">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="monitor" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Frontend</h3>
+            <div class="space-y-3">
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">ReactJS</div>
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">TypeScript</div>
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">SPA</div>
+            </div>
+            <p class="text-gray-400 mt-4">Single Page Application dengan TypeScript untuk type-safety dan navigasi yang cepat</p>
+          </div>
+
+          <!-- Backend -->
+          <div class="bg-gray-800 rounded-3xl p-8 fade-in stagger-2">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="server" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Backend</h3>
+            <div class="space-y-3">
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Node.js</div>
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">ExpressJS</div>
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">NestJS</div>
+            </div>
+            <p class="text-gray-400 mt-4">API yang scalable dengan struktur modular dan dependency injection untuk maintainability</p>
+          </div>
+
+          <!-- Database -->
+          <div class="bg-gray-800 rounded-3xl p-8 fade-in stagger-3">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+              <i data-lucide="database" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Database</h3>
+            <div class="space-y-3">
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">MySQL</div>
+              <div class="tech-badge text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">PostgreSQL</div>
+            </div>
+            <p class="text-gray-400 mt-4">MySQL untuk transaksi harian, PostgreSQL untuk analitik dan reporting yang kompleks</p>
+          </div>
+        </div>
+
+        <!-- Architecture Details -->
+        <div class="bg-gray-800 rounded-3xl p-8 fade-in">
+          <h3 class="text-2xl font-bold mb-6 text-center">Architecture & Security</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="shield" class="w-6 h-6 text-white"></i>
+              </div>
+              <h4 class="font-semibold mb-2">Security</h4>
+              <p class="text-gray-400 text-sm">JWT Access & Refresh Token dengan RBAC untuk kontrol akses berbasis peran</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+              </div>
+              <h4 class="font-semibold mb-2">Architecture</h4>
+              <p class="text-gray-400 text-sm">Monorepo dengan pnpm workspace untuk sinkronisasi tim dan dependency management</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="cloud" class="w-6 h-6 text-white"></i>
+              </div>
+              <h4 class="font-semibold mb-2">Hosting</h4>
+              <p class="text-gray-400 text-sm">Self-hosting di VPS IDCloudhost dengan kontrol penuh dan biaya efektif</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results & Impact -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl font-bold mb-4">Hasil & Dampak</h2>
+          <p class="text-xl text-gray-600">Sistem yang telah beroperasi dengan sukses dan memberikan value nyata</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl p-8 lg:p-12 fade-in">
+          <div class="text-center mb-12">
+            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="check-circle" class="w-10 h-10 text-white"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-4">Sistem Beroperasi Penuh</h3>
+            <p class="text-xl text-gray-600">Per Juni 2025, BLANKSYS Hardware POS telah resmi digunakan klien dan berjalan lancar</p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i data-lucide="zap" class="w-8 h-8 text-green-500"></i>
+              </div>
+              <h4 class="text-xl font-bold mb-2">Efisiensi Operasional</h4>
+              <p class="text-gray-600">Otomatisasi proses mengurangi waktu pencatatan dari jam menjadi menit</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i data-lucide="trending-up" class="w-8 h-8 text-blue-500"></i>
+              </div>
+              <h4 class="text-xl font-bold mb-2">Insight Real-time</h4>
+              <p class="text-gray-600">Dashboard memberikan visibility penuh terhadap performa bisnis harian</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i data-lucide="heart" class="w-8 h-8 text-purple-500"></i>
+              </div>
+              <h4 class="text-xl font-bold mb-2">Kepuasan Klien</h4>
+              <p class="text-gray-600">Maintenance gratis tahun pertama dengan respons cepat untuk bug fixes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg relative overflow-hidden">
+      <div class="absolute inset-0 bg-black/20"></div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <div class="fade-in">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">Siap Mencoba BLANKSYS?</h2>
+          <p class="text-xl text-white/90 mb-8">Rasakan sendiri pengalaman menggunakan sistem POS yang revolusioner untuk bisnis hardware Anda</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://blanksys.netlify.app/" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 pulse-glow">
+              <i data-lucide="external-link" class="w-5 h-5 inline mr-2"></i>
+              Coba Demo Live
+            </a>
+            <a href="mailto:contact@blanksys.com" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+              <i data-lucide="mail" class="w-5 h-5 inline mr-2"></i>
+              Hubungi Tim
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Elements -->
+      <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce"></div>
+      <div class="absolute bottom-20 right-10 w-16 h-16 bg-yellow-400/20 rounded-full animate-pulse"></div>
+      <div class="absolute top-1/3 right-20 w-12 h-12 bg-orange-500/20 rounded-full animate-ping"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg"></div>
+              <span class="font-bold text-xl">BLANKSYS</span>
+            </div>
+            <p class="text-gray-400">Solusi POS modern untuk toko hardware, bangunan, dan material engineering.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="#overview" class="hover:text-white transition-colors">Overview</a></li>
+              <li><a href="#problem" class="hover:text-white transition-colors">Problem</a></li>
+              <li><a href="#solution" class="hover:text-white transition-colors">Solution</a></li>
+              <li><a href="#process" class="hover:text-white transition-colors">Process</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Contact</h3>
+            <div class="space-y-2 text-gray-400">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <a href="https://blanksys.netlify.app/" class="hover:text-white transition-colors">Demo Live</a>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>contact@blanksys.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-8 border-gray-800" />
+        <div class="text-center text-gray-400">
+          <p>&copy; 2025 BLANKSYS Hardware POS. All rights reserved. Made with ❤️ for hardware businesses.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        el.style.animationPlayState = "paused";
+        observer.observe(el);
+      });
+
+      // Navbar scroll effect
+      let lastScrollTop = 0;
+      const navbar = document.querySelector("nav");
+
+      window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down
+          navbar.style.transform = "translateY(-100%)";
+        } else {
+          // Scrolling up
+          navbar.style.transform = "translateY(0)";
+        }
+        lastScrollTop = scrollTop;
+      });
+
+      // Add transition to navbar
+      navbar.style.transition = "transform 0.3s ease-in-out";
+    </script>
+  </body>
+</html>
